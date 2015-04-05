@@ -20,9 +20,11 @@
  */
 package test.java;
 
+import main.java.search.BinarySearch;
 import main.java.search.SequentialSearch;
-
 import static org.junit.Assert.assertEquals;
+
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Random;
@@ -33,21 +35,42 @@ import java.util.Random;
  *
  */
 public class SearchingAndSortingTests {
-
+  
   @Test
   public void SequentialSearchTest() {
-    // Generates a sequential sequence 1 through 100
+    // Generate a sequential sequence 1 through 100.
     int[] args = new int[100];
     for (int i = 0; i < args.length; i++) {
       args[i] = i;
     }
     SequentialSearch seq = new SequentialSearch();
     
-    // Generates a random index to find and calls the function with that indexes
-    // element
+    // Generate a random index to find and calls the function with that indexes
+    // element.
     Random rand = new Random();
     int index = rand.nextInt(100);
     int element = args[index];
     assertEquals(index, seq.search(args,element));
+  }
+  
+  @Test
+  public void BinarySearchTest() {
+    // Generate a sequential sequence 1 through 100.
+    int[] args = new int[100];
+    for (int i = 0; i < args.length; i++) {
+      args[i] = i;
+    }
+    
+    BinarySearch bin = new BinarySearch();
+    
+    // Generate a random index to find and calls the function with that indexes
+    // element.
+    Random rand = new Random();
+    int index = rand.nextInt(100);
+    int element = args[index];
+    
+    // Test both the recursive method and non-recursive method.
+    assertEquals(index, bin.search(args,element));
+    assertEquals(index, bin.recursiveSearch(args, element));
   }
 }
