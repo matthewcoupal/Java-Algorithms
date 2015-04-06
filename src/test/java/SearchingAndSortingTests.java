@@ -22,6 +22,8 @@ package test.java;
 
 import main.java.search.BinarySearch;
 import main.java.search.SequentialSearch;
+import main.java.sort.SelectionSort;
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
@@ -72,5 +74,17 @@ public class SearchingAndSortingTests {
     // Test both the recursive method and non-recursive method.
     assertEquals(index, bin.search(args,element));
     assertEquals(index, bin.recursiveSearch(args, element));
+  }
+  
+  @Test
+  public void SelectionSortTest() {
+    int[] args = {12, 6, 31, 42, 1, 0};
+    int[] expectedSort = {0,1,6,12,31,42};
+    SelectionSort sel = new SelectionSort();
+    int[] actualSort = sel.sort(args);
+    for (int i = 0; i < args.length; i++) {
+      assertEquals(expectedSort[i], actualSort[i]);
+    }
+    
   }
 }
