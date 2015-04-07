@@ -22,8 +22,8 @@ package test.java;
 
 import main.java.search.BinarySearch;
 import main.java.search.SequentialSearch;
+import main.java.sort.MergeSort;
 import main.java.sort.SelectionSort;
-
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
@@ -85,6 +85,16 @@ public class SearchingAndSortingTests {
     for (int i = 0; i < args.length; i++) {
       assertEquals(expectedSort[i], actualSort[i]);
     }
-    
+  }
+  
+  @Test
+  public void MergeSortTest() {
+    int[] args = {12, 6, 31, 42, 1, 0};
+    int[] expectedSort = {0, 1, 6, 12, 31, 42};
+    MergeSort mer = new MergeSort();
+    int[] actualSort = mer.sort(args);
+    for (int i = 0; i < args.length; i++) {
+      assertEquals(expectedSort[i], actualSort[i]);
+    }
   }
 }
